@@ -21,3 +21,23 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
+// Solve Code Practice Questions
+function solveCodePractice() {
+	/* 
+	Note: this doesn't actually solve the problems, but pulls a jedi mind
+	trick and swaps the question and answer tabs, then runs the code inside
+	the new "question" tab, which returns the result from the answer tab
+	*/
+	
+	// Iterate through every navigation tab to swap tabs and select "answer"
+	var navTabs = document.getElementsByClassName("nav nav-tabs");
+	for(var i = 0; i < navTabs.length; i++) {
+		var tabs = navTabs[i].getElementsByTagName("li");
+		navTabs[i].insertBefore(tabs[0], tabs[2]);
+		tabs[0].className += "active";
+		tabs[1].className -= "active";
+	}
+}
+
+solveCodePractice();

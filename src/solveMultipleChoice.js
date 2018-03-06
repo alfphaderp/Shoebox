@@ -29,12 +29,12 @@ function solveMultipleChoice() {
 		return document.getElementsByClassName("alert alert-success").length;
 	}
 	
-	// Solve all multiple choice questions in each form
+	// Iterate through all multiple choice questions in each form
 	var forms = document.getElementsByTagName("form");
 	for(var i = 0; i < forms.length; i++) {
 		var labels = forms[i].getElementsByTagName("label");
 		
-		// Skip form if not a multiple choice question
+		// Skip form if it is not a multiple choice question
 		if(labels.length > 0) {
 			var button = forms[i].getElementsByClassName("btn btn-success")[0];
 			
@@ -50,12 +50,12 @@ function solveMultipleChoice() {
 			while(getSolvedQuestions() == solvedQuestions) {
 				labels[j].getElementsByTagName("input")[0].checked = true;
 				button.click();
-				k++;
+				j++;
 			}
 			console.log("A multiple choice question has been solved!");
 		}
 	}
-	console.log("All multiple choice questions have been solved!")
+	console.log("All multiple choice questions have been solved!");
 }
 
 solveMultipleChoice();
