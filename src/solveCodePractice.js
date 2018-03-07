@@ -22,22 +22,32 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+/*
+This script swaps the question and answer tabs of code practice problems and
+runs the answers inside the question tab
+*/
+
+// TODO: Finish optimizing with jQuery
+
 // Solve Code Practice Questions
 function solveCodePractice() {
-	/* 
-	Note: this doesn't actually solve the problems, but pulls a jedi mind
-	trick and swaps the question and answer tabs, then runs the code inside
-	the new "question" tab, which returns the result from the answer tab
-	*/
-	
-	// Iterate through every navigation tab to swap tabs and select "answer"
-	var navTabs = document.getElementsByClassName("nav nav-tabs");
+	// Iterate through every navigation tab
+	var navTabs = $("ul.nav.nav-tabs");
 	for(var i = 0; i < navTabs.length; i++) {
-		var tabs = navTabs[i].getElementsByTagName("li");
+		var tabs = $(navTabs[i]).find("li");
+		
+		// Select answer tab
+		$($(navTabs[i]).find("a")[1]).trigger("click");
+		
+		// Swap tabs
 		navTabs[i].insertBefore(tabs[0], tabs[2]);
-		tabs[0].className += "active";
-		tabs[1].className -= "active";
+
+		// Rename tabs
+		tabs[0].getElementsByTagName("span")[0].innerHTML = "Answer";
+		tabs[1].getElementsByTagName("span")[0].innerHTML = "Question";
 	}
+	
+	// WIP
 }
 
 solveCodePractice();

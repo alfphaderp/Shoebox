@@ -22,6 +22,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+/*
+This script iterates through every multiple choice question and brute forces
+all the answers until the correct one is found
+*/
+
+// TODO: Optimize script using jQuery
+
 // Solve multiple choice questions
 function solveMultipleChoice() {
 	// Return the number of correctly solved questions
